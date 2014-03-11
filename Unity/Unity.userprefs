@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\WeaponScripts\Weapon.cs">
+    <Files>
+      <File FileName="Assets\WeaponScripts\Weapon.cs" Line="4" Column="16" />
+      <File FileName="Assets\Ship.cs" Line="20" Column="2" />
+      <File FileName="Assets\WeaponScripts\Projectile.cs" Line="15" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
