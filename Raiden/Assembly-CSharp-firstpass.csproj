@@ -39,15 +39,20 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>E:/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>E:/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Standard Assets\Scripts\Bullet.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\Game.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\NPC.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\Projectile.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\Ship.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\Weapon.cs" />
      <Compile Include="Assets\Standard Assets\Water (Basic)\Sources\Scripts\WaterSimple.cs" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
   </ItemGroup>

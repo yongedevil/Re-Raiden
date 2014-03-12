@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Xml;
 
 namespace Raden
 {
@@ -8,7 +9,13 @@ namespace Raden
 	{
 		private Ship m_parent;
         private Projectile m_proj;
-		
+
+        Weapon()
+        {
+            m_parent = null;
+            m_proj = null;
+        }
+
 		Weapon(Ship parent)
 		{
 			m_parent = parent;
@@ -25,6 +32,8 @@ namespace Raden
 			{
                 projObj = UnityEngine.Object.Instantiate(m_proj.template, m_parent.position, Quaternion.identity) as GameObject;
                 if (null == projObj) return null;
+
+                Physics.IgnoreCollision(projObj.collider, m_parent.collider);
 
                 proj = projObj.GetComponent<Projectile>();
                 if (null == proj) return null;
