@@ -1,15 +1,24 @@
 using UnityEngine;
 using System.Collections;
 
-namespace Raden
+namespace Raiden
 {
-	public class Projectile : MonoBehaviour
+    /*--------------------------------------------------*\
+     * Projectile class                                 *
+     * Represents a projectile fired by a weapon.       *
+     * Base class for all projectiles.                  *
+    \*--------------------------------------------------*/
+    public abstract class Projectile : Entity
 	{
+        enum PROJECTILE_TYPE
+        {
+            TYPE_BASE
+        }
+
 		private const int DEFAULT_DAMAGE = 5;
 
-        private GameObject m_template;
-        public GameObject template { get { return m_template; } }
-
+        public abstract PROJECTILE_TYPE projectileType { get; }
+        public ENTITY_TYPE entityType { get { return ENTITY_TYPE.TYPE_PROJECTILE; } }
 
         private Ship m_shooter;
         public Ship shooter { get { return m_shooter; } }

@@ -1,38 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour 
+namespace Raiden
 {
-	float moveSpeed = 6.0f;
-	public Transform Vulcans;
-	public GameObject Playerbullet;
-	// Use this for initialization
-	void Start () 
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-	  //Player controls
-		float hValue = Input.GetAxis ("Horizontal");
-		transform.Translate (new Vector3(hValue*moveSpeed,0,0)*Time.deltaTime);
-		float vValue = Input.GetAxis ("Vertical");
-		transform.Translate (new Vector3(0,0,vValue*moveSpeed)*Time.deltaTime);
+    public class Player : MonoBehaviour
+    {
+        float moveSpeed = 6.0f;
+        public Transform Vulcans;
+        public GameObject Playerbullet;
+        // Use this for initialization
+        void Start()
+        {
 
-		if(Input.GetButtonDown("Fire1"))
-		{
-			GameObject PlayerbulletInstance = Instantiate(Playerbullet, Vulcans.position, Vulcans.rotation) as GameObject;
-			Physics.IgnoreCollision(PlayerbulletInstance.collider, collider);
+        }
 
-			if(Input.GetButtonDown("Fire1"))
-			{
+        // Update is called once per frame
+        void Update()
+        {
+            //Player controls
+            float hValue = Input.GetAxis("Horizontal");
+            transform.Translate(new Vector3(hValue * moveSpeed, 0, 0) * Time.deltaTime);
+            float vValue = Input.GetAxis("Vertical");
+            transform.Translate(new Vector3(0, 0, vValue * moveSpeed) * Time.deltaTime);
 
-				
-				PlayerbulletInstance.rigidbody.velocity = transform.TransformDirection(Vector3.forward*20);
-			}	
-		}
-		
-	}
+            if (Input.GetButtonDown("Fire1"))
+            {
+                GameObject PlayerbulletInstance = Instantiate(Playerbullet, Vulcans.position, Vulcans.rotation) as GameObject;
+                Physics.IgnoreCollision(PlayerbulletInstance.collider, collider);
+
+                if (Input.GetButtonDown("Fire1"))
+                {
+
+
+                    PlayerbulletInstance.rigidbody.velocity = transform.TransformDirection(Vector3.forward * 20);
+                }
+            }
+
+        }
+    }
 }
