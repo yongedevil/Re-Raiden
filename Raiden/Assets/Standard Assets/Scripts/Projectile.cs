@@ -8,17 +8,19 @@ namespace Raiden
      * Represents a projectile fired by a weapon.       *
      * Base class for all projectiles.                  *
     \*--------------------------------------------------*/
-    public abstract class Projectile : Entity
+    public class Projectile : Entity
 	{
-        enum PROJECTILE_TYPE
+        public enum PROJECTILE_TYPE
         {
             TYPE_BASE
         }
 
 		private const int DEFAULT_DAMAGE = 5;
 
-        public abstract PROJECTILE_TYPE projectileType { get; }
-        public ENTITY_TYPE entityType { get { return ENTITY_TYPE.TYPE_PROJECTILE; } }
+        private PROJECTILE_TYPE m_projType;
+        public PROJECTILE_TYPE projectileType { get { return m_projType; } }
+
+        public override ENTITY_TYPE entityType { get { return ENTITY_TYPE.TYPE_PROJECTILE; } }
 
         private Ship m_shooter;
         public Ship shooter { get { return m_shooter; } }
@@ -29,6 +31,15 @@ namespace Raiden
         private int m_dmg;
         public int damage { get { return m_dmg; } }
 
+
+        public void Awake()
+        {
+            m_projType = PROJECTILE_TYPE.TYPE_BASE;
+            m_shooter = null;
+            m_launchSpeed = 1;
+            m_dmg = 1;
+        }
+        
 		// Use this for initialization
 		void Start ()
 		{
@@ -41,14 +52,24 @@ namespace Raiden
 			
 		}
 
-        public void Initilize(int damage, float launchSpeed)
+        public void Init(PROJECTILE_TYPE type, int damage, float launchSpeed)
         {
+            m_projType = type;
+            m_dmg = damage;
+            m_launchSpeed = launchSpeed;
+            m_shooter = null;
         }
 
 
-        public void Shoot(Ship shooter)
+        public void Shoot(Ship shooter, Vector3 dir)
         {
             m_shooter = shooter;
+
+            if (null != this.rigidbody)
+            {
+                if (dir.sqrMagnitude > 1) dir.Normalize();
+                this.rigidbody.velocity = launchSpeed * dir;
+            }
         }
 	}
 }

@@ -17,7 +17,7 @@ namespace Raiden
 
         public abstract NPC_TYPE npcType { get; }
 
-        public ENTITY_TYPE entityType { get { return ENTITY_TYPE.TYPE_SHIP; } }
+        public override ENTITY_TYPE entityType { get { return ENTITY_TYPE.TYPE_SHIP; } }
 
 
 

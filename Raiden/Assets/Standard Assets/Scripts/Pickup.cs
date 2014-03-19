@@ -18,6 +18,6 @@ namespace Raiden
 
         public abstract PICKUP_TYPE pickupType { get; }
 
-        public ENTITY_TYPE entityType { get { return ENTITY_TYPE.TYPE_PICKUP; } }
+        public override ENTITY_TYPE entityType { get { return ENTITY_TYPE.TYPE_PICKUP; } }
     }
 }

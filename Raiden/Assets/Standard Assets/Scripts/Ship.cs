@@ -11,12 +11,19 @@ namespace Raiden
     \*--------------------------------------------------*/
     public class Ship : Entity
     {
-        public ENTITY_TYPE entityType { get { return ENTITY_TYPE.TYPE_SHIP; } }
+        public enum SHIP_TYPE
+        {
+            TYPE_BASE,
+            TYPE_PLAYER
+        }
+
+        private SHIP_TYPE m_shipType;
+        public SHIP_TYPE shipType { get { return m_shipType; } }
+
+        public override ENTITY_TYPE entityType { get { return ENTITY_TYPE.TYPE_SHIP; } }
 
         [SerializeField]
         public List<Weapon> weapons;
-
-        public Vector3 position { get { return (null != transform ? transform.position : new Vector3(0, 0, 0)); } }
 
 
 		// Use this for initialization
