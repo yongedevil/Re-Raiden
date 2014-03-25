@@ -15,6 +15,14 @@ public class Bullet : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-	
+	 
+	}
+
+	void OnCollisionEnter(Collision col)
+	{
+		if (col.gameObject.name != "Playerbullet(Clone)") 
+		{
+			Destroy (gameObject);
+		}
 	}
 }
