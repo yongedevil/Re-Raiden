@@ -58,9 +58,11 @@
      <Compile Include="Assets\Standard Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Ship.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\SpawnMarker.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\Test.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Weapon.cs" />
      <Compile Include="Assets\Standard Assets\Water (Basic)\Sources\Scripts\WaterSimple.cs" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
+     <None Include="Assets\fileIOtest.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

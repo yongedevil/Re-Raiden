@@ -10,8 +10,12 @@ namespace Raiden
      * Base class for all weapons.                      *
     \*--------------------------------------------------*/
     [System.Serializable]
-    public class Weapon
+    public class Weapon : iDataConfig
 	{
+        public const string NODENAME = "WEAPON";
+        public const string NODEVAR_WEPTYPE = "weaponType";
+        public const string NODEVAR_OFFSET = "muzzelOffset";
+
         public enum WEAPON_TYPE
         {
             TYPE_BASE
@@ -66,6 +70,36 @@ namespace Raiden
 
             return proj;
 		}
+
+
+        public void LoadData(DataNode node)
+        {
+            int wepType;
+            if (node.HasValue(NODEVAR_WEPTYPE) && (int.TryParse(node.GetValue(NODEVAR_WEPTYPE), out wepType)))
+            {
+                m_wepType = (WEAPON_TYPE)wepType;
+            }
+            else
+                m_wepType = WEAPON_TYPE.TYPE_BASE;
+
+
+            if (node.HasValue(NODEVAR_OFFSET))
+            {
+                //setup offset
+            }
+            else
+                m_offset = new Vector3(0, 0, 0);
+
+
+            foreach (DataNode subnode in node.GetNodes())
+            {
+                if (Projectile.NODENAME == subnode.name)
+                {
+                    m_projTemplate = new Projectile();
+                    m_projTemplate.LoadData(subnode);
+                }
+            }
+        }
 
 	}
 }

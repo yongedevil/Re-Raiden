@@ -8,7 +8,7 @@ namespace Raiden
      * Entity class                                     *
      * Base class for all objects used in Raden         *
     \*--------------------------------------------------*/                                         
-    public abstract class Entity : MonoBehaviour
+    public abstract class Entity : MonoBehaviour : iDataConfig
     {
         public enum ENTITY_TYPE
         {

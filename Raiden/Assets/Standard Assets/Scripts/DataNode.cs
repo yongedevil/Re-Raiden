@@ -4,6 +4,12 @@ using System.Collections.Generic;
 
 namespace Raiden
 {
+    public interface iDataConfig
+    {
+        public void LoadData(DataNode node);
+        //public void SaveData(ref DataNode node);
+    }
+
     public class DataNode
     {
         private string m_name;
@@ -11,6 +17,9 @@ namespace Raiden
 
         private Dictionary<string, string> m_variables;
         private List<DataNode> m_subNodes;
+
+        //used in ToString()
+        private static int indentLevel = 0;
 
         public DataNode(string name)
         {
@@ -47,6 +56,44 @@ namespace Raiden
         {
             List<DataNode> subNodes = new List<DataNode>(m_subNodes);
             return subNodes;
+        }
+
+        public override string ToString()
+        {
+            string rtnString;
+
+            rtnString = AddIndent() + name + "\n";
+            rtnString += AddIndent() + "{\n";
+
+            ++indentLevel;
+
+            foreach (KeyValuePair<string, string> variable in m_variables)
+            {
+                rtnString += AddIndent() + variable.Key + " = " + variable.Value + "\n";
+                Debug.Log("variable.Key " + variable.Key + " | variable.Value " + variable.Value);
+            }
+
+            foreach (DataNode node in m_subNodes)
+            {
+                rtnString += node.ToString();
+            }
+
+            --indentLevel;
+
+            rtnString +=  AddIndent() + "}\n";
+
+            return rtnString;
+        }
+
+        private string AddIndent()
+        {
+            string spaces = "";
+            for (int i = 0; i < indentLevel; ++i)
+            {
+                spaces += "  ";
+            }
+
+            return spaces;
         }
     }
 }

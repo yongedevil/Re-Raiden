@@ -10,6 +10,11 @@ namespace Raiden
     \*--------------------------------------------------*/
     public class Projectile : Entity
 	{
+        public const string NODENAME = "PROJECTILE";
+        public const string NODEVAR_PROJTYPE = "projectileType";
+        public const string NODEVAR_SPEED = "projectileSpeed";
+        public const string NODEVAR_DAMAGE = "projectileDamage";
+
         public enum PROJECTILE_TYPE
         {
             TYPE_BASE
@@ -71,6 +76,34 @@ namespace Raiden
                 this.rigidbody.velocity = launchSpeed * dir;
             }
         }
+
+
+        public void LoadData(DataNode node)
+        {
+            int projType;
+            if (node.HasValue(NODEVAR_PROJTYPE) && (int.TryParse(node.GetValue(NODEVAR_PROJTYPE), out projType)))
+            {
+                m_projType = (PROJECTILE_TYPE)projType;
+            }
+            else
+                m_projType = PROJECTILE_TYPE.TYPE_BASE;
+
+            float speed;
+            if (node.HasValue(NODEVAR_SPEED) && (float.TryParse(node.GetValue(NODEVAR_SPEED), out speed)))
+            {
+                m_launchSpeed = speed;
+            }
+            else
+                m_launchSpeed = 10;
+
+            int damage;
+            if (node.HasValue(NODEVAR_DAMAGE) && (int.TryParse(node.GetValue(NODEVAR_DAMAGE), out damage)))
+            {
+                m_dmg = damage;
+            }
+            else
+                m_dmg = 10;
+        } 
 	}
 }
 
