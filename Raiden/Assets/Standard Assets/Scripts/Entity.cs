@@ -8,7 +8,7 @@ namespace Raiden
      * Entity class                                     *
      * Base class for all objects used in Raden         *
     \*--------------------------------------------------*/                                         
-    public abstract class Entity : MonoBehaviour : iDataConfig
+    public abstract class Entity : MonoBehaviour, iDataNode
     {
         public enum ENTITY_TYPE
         {
@@ -19,6 +19,8 @@ namespace Raiden
         };
 
         public abstract ENTITY_TYPE entityType { get; }
+
+        public string filePath;
 
         public Vector3 position
         {
@@ -50,5 +52,8 @@ namespace Raiden
                     this.rigidbody.velocity = value;
             }
         }
+        
+        public abstract void LoadData(DataNode node);
+
     }
 }

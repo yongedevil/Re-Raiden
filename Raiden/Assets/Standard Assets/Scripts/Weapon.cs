@@ -10,7 +10,7 @@ namespace Raiden
      * Base class for all weapons.                      *
     \*--------------------------------------------------*/
     [System.Serializable]
-    public class Weapon : iDataConfig
+    public class Weapon : iDataNode
 	{
         public const string NODENAME = "WEAPON";
         public const string NODEVAR_WEPTYPE = "weaponType";
@@ -74,6 +74,8 @@ namespace Raiden
 
         public void LoadData(DataNode node)
         {
+            Debug.Log("Weapon.LoadData: node " + node.ToString());
+
             int wepType;
             if (node.HasValue(NODEVAR_WEPTYPE) && (int.TryParse(node.GetValue(NODEVAR_WEPTYPE), out wepType)))
             {
@@ -95,10 +97,13 @@ namespace Raiden
             {
                 if (Projectile.NODENAME == subnode.name)
                 {
-                    m_projTemplate = new Projectile();
+                    GameObject newObj = new GameObject("Projectile Template");
+                    m_projTemplate = newObj.AddComponent<Projectile>();
                     m_projTemplate.LoadData(subnode);
                 }
             }
+
+            Debug.Log("Weapon.LoadData: wepType " + m_wepType + " | offset " + m_offset);
         }
 
 	}

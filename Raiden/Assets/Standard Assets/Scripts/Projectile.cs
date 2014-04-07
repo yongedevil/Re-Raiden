@@ -26,9 +26,9 @@ namespace Raiden
         public PROJECTILE_TYPE projectileType { get { return m_projType; } }
 
         public override ENTITY_TYPE entityType { get { return ENTITY_TYPE.TYPE_PROJECTILE; } }
-
-        private Ship m_shooter;
-        public Ship shooter { get { return m_shooter; } }
+        
+        private bool m_shooterIsPlayer;
+        public bool shooterIsPlayer { get { return m_shooterIsPlayer; } } 
 
         private float m_launchSpeed;
         public float launchSpeed { get { return m_launchSpeed; } }
@@ -36,11 +36,13 @@ namespace Raiden
         private int m_dmg;
         public int damage { get { return m_dmg; } }
 
+        private float m_lifetime;
+
 
         public void Awake()
         {
             m_projType = PROJECTILE_TYPE.TYPE_BASE;
-            m_shooter = null;
+            m_shooterIsPlayer = false;
             m_launchSpeed = 1;
             m_dmg = 1;
         }
@@ -48,7 +50,7 @@ namespace Raiden
 		// Use this for initialization
 		void Start ()
 		{
-			
+            Destroy(gameObject, m_lifetime);
 		}
 		
 		// Update is called once per frame
@@ -62,13 +64,16 @@ namespace Raiden
             m_projType = type;
             m_dmg = damage;
             m_launchSpeed = launchSpeed;
-            m_shooter = null;
+            m_shooterIsPlayer = false;
         }
 
 
         public void Shoot(Ship shooter, Vector3 dir)
         {
-            m_shooter = shooter;
+            if (Ship.SHIP_TYPE.TYPE_PLAYER == shooter.shipType)
+                m_shooterIsPlayer = true;
+            else
+                m_shooterIsPlayer = false;
 
             if (null != this.rigidbody)
             {
@@ -78,8 +83,10 @@ namespace Raiden
         }
 
 
-        public void LoadData(DataNode node)
+        public override void LoadData(DataNode node)
         {
+            Debug.Log("Projectile.LoadData: node " + node.ToString());
+
             int projType;
             if (node.HasValue(NODEVAR_PROJTYPE) && (int.TryParse(node.GetValue(NODEVAR_PROJTYPE), out projType)))
             {
@@ -103,7 +110,25 @@ namespace Raiden
             }
             else
                 m_dmg = 10;
-        } 
+
+            Debug.Log("Projectile.LoadData: projType " + m_projType + " | launchSpeed " + m_launchSpeed + " | dmg " + m_dmg);
+        }
+
+        void OnCollisionEnter(Collision col)
+        {
+            Ship ship = col.gameObject.GetComponent<Ship>();
+            Debug.Log("ship " + (null != ship ? "Not null" : "NULL!"));
+            if (null != ship)
+            {
+                if ((m_shooterIsPlayer) != (Ship.SHIP_TYPE.TYPE_PLAYER == ship.shipType))
+                {
+                    ship.UpdateHealth(-m_dmg);
+                }
+
+                Destroy(gameObject);
+            }
+
+        }
 	}
 }
 

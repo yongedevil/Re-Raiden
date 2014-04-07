@@ -35,10 +35,17 @@ namespace Raiden
                     line = ReadNext(ref reader);
                 }
             }
-            catch
+            catch (FileNotFoundException e)
             {
-                //file could not be read
-                Debug.Log("ERROR FileIO: Could not open file " + path);
+                Debug.Log("ERROR FileIO: Could not find file " + path);
+            }
+            catch (DirectoryNotFoundException e)
+            {
+                Debug.Log("ERROR FileIO: Could not find dir " + path);
+            }
+            catch (IOException e)
+            {
+                Debug.Log("ERROR FileIO: path not correct format " + path);
             }
 
             return nodes;
@@ -144,14 +151,17 @@ namespace Raiden
         //Removes comments, denoted by "//" from the line
         static private void RemoveComments(ref string line)
         {
-            int index_comment;
+            if (null != line)
+            {
+                int index_comment;
 
-            //check if there is a comment in the line, if there is drop everything passed the comment
-            if((index_comment = line.IndexOf("//")) > -1)
-                line = line.Substring(0, index_comment);
+                //check if there is a comment in the line, if there is drop everything passed the comment
+                if ((index_comment = line.IndexOf("//")) > -1)
+                    line = line.Substring(0, index_comment);
 
-            //trim off whitespace at begining on end
-            line = line.Trim();
+                //trim off whitespace at begining on end
+                line = line.Trim();
+            }
         }
 
 

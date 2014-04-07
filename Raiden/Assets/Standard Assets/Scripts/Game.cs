@@ -22,5 +22,24 @@ namespace Raiden
         private List<Pickup> mlist_pickupTemplates;
 
         private List<Entity> mlist_entities;
+
+        public void OnGUI()
+        {
+            GUI.color = Color.white;
+            if (m_player.health > 0)
+            {
+                GUI.Label(new Rect(50, 370, 100, 100), m_player.health.ToString());
+                GUI.Label(new Rect(10, 370, 100, 100), "Health");
+                GUI.Label(new Rect(68, 370, 100, 100), " / 100");
+            }
+
+            if (m_player.health > 0)
+            {
+                GUI.Label(new Rect(50, 470, 100, 100), m_score.ToString());
+                GUI.Label(new Rect(10, 470, 100, 100), "Score");
+            }
+
+        }
     }
+
 }

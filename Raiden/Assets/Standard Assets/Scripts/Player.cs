@@ -3,38 +3,47 @@ using System.Collections;
 
 namespace Raiden
 {
-    public class Player : MonoBehaviour
+    public class Player : Ship
     {
-        float moveSpeed = 6.0f;
-        public Transform Vulcans;
-        public GameObject Playerbullet;
         // Use this for initialization
         void Start()
         {
-
+            base.Start();
         }
 
         // Update is called once per frame
-        void Update()
+        public void Update()
         {
+            base.Update();
+
             //Player controls
+            ProccessInput();
+
+
+        }
+
+
+        public void ProccessInput()
+        {
             float hValue = Input.GetAxis("Horizontal");
-            transform.Translate(new Vector3(hValue * moveSpeed, 0, 0) * Time.deltaTime);
+            transform.Translate(new Vector3(hValue * speed, 0, 0) * Time.deltaTime);
             float vValue = Input.GetAxis("Vertical");
-            transform.Translate(new Vector3(0, 0, vValue * moveSpeed) * Time.deltaTime);
+            transform.Translate(new Vector3(0, 0, vValue * speed) * Time.deltaTime);
+
 
             if (Input.GetButtonDown("Fire1"))
             {
-                GameObject PlayerbulletInstance = Instantiate(Playerbullet, Vulcans.position, Vulcans.rotation) as GameObject;
-                Physics.IgnoreCollision(PlayerbulletInstance.collider, collider);
-
-                if (Input.GetButtonDown("Fire1"))
-                {
-
-
-                    PlayerbulletInstance.rigidbody.velocity = transform.TransformDirection(Vector3.forward * 20);
-                }
+                FireWeapon(0, transform.forward);
             }
+            else if (Input.GetButtonDown("Fire2"))
+            {
+                FireWeapon(1, transform.forward);
+            }
+        }
+
+        public override void LoadData(DataNode node)
+        {
+            base.LoadData(node);
 
         }
     }

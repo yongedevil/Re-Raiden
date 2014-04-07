@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Raiden
 {
-    public interface iDataConfig
+    public interface iDataNode
     {
-        public void LoadData(DataNode node);
+        void LoadData(DataNode node);
         //public void SaveData(ref DataNode node);
     }
 
