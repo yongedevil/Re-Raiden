@@ -1,0 +1,18 @@
+TEST
+{
+  value0 = hello
+  value1 = world
+  value2 = 42
+
+  SUBNODE
+  {
+    subValue0 = bob
+    subValue1 = I am here!
+  }
+}
+
+TEST2
+{
+  valueT0 = goodbye
+  valueT1 = player
+}

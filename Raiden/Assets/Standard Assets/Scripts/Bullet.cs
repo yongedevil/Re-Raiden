@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bullet : MonoBehaviour 
+namespace Raiden
 {
+    public class Bullet : MonoBehaviour
+    {
 
-	int seconds = 1;
+        int seconds = 1;
 
+<<<<<<< HEAD
 	// Use this for initialization
 	void Start () 
 	{
@@ -25,4 +28,18 @@ public class Bullet : MonoBehaviour
 			Destroy (gameObject);
 		}
 	}
+=======
+        // Use this for initialization
+        void Start()
+        {
+            Destroy(gameObject, seconds);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+    }
+>>>>>>> 330cb868afc953eed88fe906aef6091f2c91a997
 }
