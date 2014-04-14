@@ -1,8 +1,25 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\Finished Build\Raiden\Assets\Standard Assets\Scripts\Player.cs">
+<<<<<<< HEAD
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\TestSpawn.cs">
     <Files>
-      <File FileName="..\Finished Build\Raiden\Assets\Standard Assets\Scripts\Player.cs" Line="91" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\TestAI.cs" Line="84" Column="26" />
+      <File FileName="Assets\Standard Assets\Scripts\Player.cs" Line="15" Column="36" />
+      <File FileName="Assets\Standard Assets\Scripts\Bullet.cs" Line="26" Column="4" />
+      <File FileName="Assets\Standard Assets\Scripts\TestSpawn.cs" Line="10" Column="32" />
+=======
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\FileIO.cs">
+    <Files>
+      <File FileName="Assets\Standard Assets\Scripts\FileIO.cs" Line="43" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Ship.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\FileIO.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Player.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Bullet.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Test.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\DataNode.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Weapon.cs" Line="1" Column="1" />
+>>>>>>> 330cb868afc953eed88fe906aef6091f2c91a997
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
