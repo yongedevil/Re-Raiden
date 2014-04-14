@@ -35,7 +35,7 @@ public class TestSpawn : MonoBehaviour
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
 		if(Physics.Raycast(transform.position, fwd, 30))
 		{
-			print ("Preparing to attack");
+			//print ("Preparing to attack");
 		}
 
 		switch(state)
@@ -61,7 +61,7 @@ public class TestSpawn : MonoBehaviour
 		if (currentSeconds > maxSeconds) 
 		{
 			currentSeconds = 0;
-			Debug.Log (awareDistance.ToString () + " " + dist.ToString ());
+			//Debug.Log (awareDistance.ToString () + " " + dist.ToString ());
 			state = TestSpawnState.Spawn;
 			return;
 		} 

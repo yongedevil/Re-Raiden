@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-	
+		alive = true;
 	}
 	
 	// Update is called once per frame
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 			}	
 		}
 
-        CheckBounds();
+		CheckBounds();
 
 		if(health <= 0 && alive)
 		{
@@ -50,13 +50,13 @@ public class Player : MonoBehaviour
 			Destroy(gameObject);
 			Application.LoadLevel("GameOver");
 		}
+	
 
-		
 	}
 
 	void OnGUI ()
 	{
-		GUI.color = Color.white;
+		GUI.color = Color.black;
 		if(health >0)
 		{
 			GUI.Label(new Rect(50,370,100,100), health.ToString());
@@ -66,44 +66,44 @@ public class Player : MonoBehaviour
 
     }
 
+
    public void updateHealth(int amount)
    {
      health += amount;
    }
 
-
-   private void CheckBounds()
-   {
-       Vector3 PlayerPos = transform.position;
-       Plane[] cameraPlanes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
-
-       Vector3 ScreenPos = Camera.main.WorldToScreenPoint(PlayerPos);
-
-       if (ScreenPos.x < 0)
-       {
-           ScreenPos.x = 0;
-           PlayerPos = Camera.main.ScreenToWorldPoint(ScreenPos);
-       }
-
-       else if (ScreenPos.x > Screen.width)
-       {
-           ScreenPos.x = Screen.width;
-           PlayerPos = Camera.main.ScreenToWorldPoint(ScreenPos);
-       }
-
-
-       if (ScreenPos.y < 0)
-       {
-           ScreenPos.y = 0;
-           PlayerPos = Camera.main.ScreenToWorldPoint(ScreenPos);
-       }
-
-       else if (ScreenPos.y > Screen.height)
-       {
-           ScreenPos.y = Screen.height;
-           PlayerPos = Camera.main.ScreenToWorldPoint(ScreenPos);
-       }
-
-       transform.position = PlayerPos;
-   }
+	private void CheckBounds()
+	{
+		Vector3 PlayerPos = transform.position;
+		Plane[] cameraPlanes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+		
+		Vector3 ScreenPos = Camera.main.WorldToScreenPoint(PlayerPos);
+		
+		if (ScreenPos.x < 0)
+		{
+			ScreenPos.x = 0;
+			PlayerPos = Camera.main.ScreenToWorldPoint(ScreenPos);
+		}
+		
+		else if (ScreenPos.x > Screen.width)
+		{
+			ScreenPos.x = Screen.width;
+			PlayerPos = Camera.main.ScreenToWorldPoint(ScreenPos);
+		}
+		
+		
+		if (ScreenPos.y < 0)
+		{
+			ScreenPos.y = 0;
+			PlayerPos = Camera.main.ScreenToWorldPoint(ScreenPos);
+		}
+		
+		else if (ScreenPos.y > Screen.height)
+		{
+			ScreenPos.y = Screen.height;
+			PlayerPos = Camera.main.ScreenToWorldPoint(ScreenPos);
+		}
+		
+		transform.position = PlayerPos;
+	}
 }

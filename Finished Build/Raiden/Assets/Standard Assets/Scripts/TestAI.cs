@@ -40,14 +40,15 @@ public class TestAI : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+
 		float dist = Vector3.Distance(player.position, transform.position);
 		RaycastHit hit;
 		checkState();
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
-        //if(Physics.Raycast(transform.position, fwd, 30))
-        //{
-        //    print ("Move Zig");
-        //}
+		if(Physics.Raycast(transform.position, fwd, 30))
+		{
+			//print ("Move Zig");
+		}
 
 		switch(state)
 		{
@@ -81,24 +82,24 @@ public class TestAI : MonoBehaviour
 	void checkState()
 	{
 		float dist = Vector3.Distance(player.position,transform.position);
-
-
-        bool isVisible = true;
-        Vector3 pos = transform.position;
-        Plane[] cameraPlanes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
-
-        foreach (Plane plane in cameraPlanes)
-        {
-            if (!plane.GetSide(pos))
-            {
-                isVisible = false;
-                break;
-            }
-
-        }
-
+		
+		
+		bool isVisible = true;
+		Vector3 pos = transform.position;
+		Plane[] cameraPlanes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+		
+		foreach (Plane plane in cameraPlanes)
+		{
+			if (!plane.GetSide(pos))
+			{
+				isVisible = false;
+				break;
+			}
+			
+		}
+		
 		//attacks the player
-        if (isVisible)
+		if (isVisible)
 		{
 			state = TestEnemyState.Attack;
 			return;
@@ -119,7 +120,8 @@ public class TestAI : MonoBehaviour
 	}
 
 	void attack()
-	{   if (Player.alive) 
+	{   
+		if (Player.alive) 
 		{
 		  transform.LookAt (player);
 		  
@@ -151,12 +153,12 @@ public class TestAI : MonoBehaviour
 
 	void OnCollisionEnter(Collision c)
 	{
+
 		if(c.gameObject.name == "Playercharacter")
 		{
 			Player player = (Player)FindObjectOfType (typeof(Player));
 			player.updateHealth(-50);
 			Destroy(gameObject);
 		}
-		
 	}
 }
