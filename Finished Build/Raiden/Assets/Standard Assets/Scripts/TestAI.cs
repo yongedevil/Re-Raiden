@@ -44,10 +44,10 @@ public class TestAI : MonoBehaviour
 		RaycastHit hit;
 		checkState();
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
-		if(Physics.Raycast(transform.position, fwd, 30))
-		{
-			print ("Move Zig");
-		}
+        //if(Physics.Raycast(transform.position, fwd, 30))
+        //{
+        //    print ("Move Zig");
+        //}
 
 		switch(state)
 		{
@@ -81,9 +81,24 @@ public class TestAI : MonoBehaviour
 	void checkState()
 	{
 		float dist = Vector3.Distance(player.position,transform.position);
-		
+
+
+        bool isVisible = true;
+        Vector3 pos = transform.position;
+        Plane[] cameraPlanes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+
+        foreach (Plane plane in cameraPlanes)
+        {
+            if (!plane.GetSide(pos))
+            {
+                isVisible = false;
+                break;
+            }
+
+        }
+
 		//attacks the player
-		if(dist < attackDistance)
+        if (isVisible)
 		{
 			state = TestEnemyState.Attack;
 			return;

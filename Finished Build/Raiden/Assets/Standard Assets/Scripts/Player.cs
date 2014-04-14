@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
 			}	
 		}
 
+        CheckBounds();
+
 		if(health <= 0 && alive)
 		{
 			alive = false;
@@ -49,32 +51,6 @@ public class Player : MonoBehaviour
 			Application.LoadLevel("GameOver");
 		}
 
-		Vector3 PlayerPos = transform.position;
-
-		Debug.Log("x: " + PlayerPos.x + " / z: " + PlayerPos.z);
-		if (PlayerPos.x >= 14.2342) 
-		{
-			PlayerPos.x = 14.15f;
-			transform.position = PlayerPos;
-		}
-
-		if (PlayerPos.z <= -19.5) 
-		{
-			PlayerPos.z = -19.5f;
-			transform.position = PlayerPos;
-		}
-
-		if (PlayerPos.z >= -6.12) 
-		{
-			PlayerPos.z = -6.12f;
-			transform.position = PlayerPos;
-		}
-
-		if (PlayerPos.x <= -14.4) 
-		{
-			PlayerPos.x = -14.4f;
-			transform.position = PlayerPos;
-		}
 		
 	}
 
@@ -93,5 +69,41 @@ public class Player : MonoBehaviour
    public void updateHealth(int amount)
    {
      health += amount;
+   }
+
+
+   private void CheckBounds()
+   {
+       Vector3 PlayerPos = transform.position;
+       Plane[] cameraPlanes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+
+       Vector3 ScreenPos = Camera.main.WorldToScreenPoint(PlayerPos);
+
+       if (ScreenPos.x < 0)
+       {
+           ScreenPos.x = 0;
+           PlayerPos = Camera.main.ScreenToWorldPoint(ScreenPos);
+       }
+
+       else if (ScreenPos.x > Screen.width)
+       {
+           ScreenPos.x = Screen.width;
+           PlayerPos = Camera.main.ScreenToWorldPoint(ScreenPos);
+       }
+
+
+       if (ScreenPos.y < 0)
+       {
+           ScreenPos.y = 0;
+           PlayerPos = Camera.main.ScreenToWorldPoint(ScreenPos);
+       }
+
+       else if (ScreenPos.y > Screen.height)
+       {
+           ScreenPos.y = Screen.height;
+           PlayerPos = Camera.main.ScreenToWorldPoint(ScreenPos);
+       }
+
+       transform.position = PlayerPos;
    }
 }
