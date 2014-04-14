@@ -1,0 +1,20 @@
+Week 3 (20th)
+  initial commits to GitHub
+  
+Week 5 (Feb 3)
+  UML to GitHub 
+  
+Week 9 (March 11)
+  started coding on GitHub
+
+Week 10 (March 17)
+  implimented game management
+  
+Week 11 (march 24)
+  File I/O
+  
+Week 12 (March 31)
+  Finished File I/O
+  
+Week 13 (April 7)
+  code merge
