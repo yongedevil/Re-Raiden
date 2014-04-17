@@ -25,7 +25,7 @@ public class TestAI : MonoBehaviour
     {
     }
 
-	void Awake()
+	public void Awake()
 	{
 		state = TestEnemyState.Idle;
 		moveDirection = Vector3.zero;
@@ -34,7 +34,7 @@ public class TestAI : MonoBehaviour
 	}
 
 	// Use this for initialization
-	void Start () 
+	public void Start () 
 	{
 		Player playerObj = (Player)FindObjectOfType (typeof(Player));
 		player = playerObj.transform;
@@ -42,7 +42,7 @@ public class TestAI : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	public void Update () 
 	{
 
 		float dist = Vector3.Distance(player.position, transform.position);
@@ -74,6 +74,7 @@ public class TestAI : MonoBehaviour
 		if(enemyHealth <= 0)
 		{
 			Destroy(gameObject);
+			alive = false;
 		}
 
 	}

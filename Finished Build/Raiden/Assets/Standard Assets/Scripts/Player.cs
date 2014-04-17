@@ -11,13 +11,13 @@ public class Player : MonoBehaviour
 	public string healthcounter2 = " /100";
 	static public bool alive = true;
 	// Use this for initialization
-	void Start () 
+	public void Start () 
 	{
 		alive = true;
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	public void Update () 
 	{
 	  //Player controls
 		float hValue = Input.GetAxis ("Horizontal");
