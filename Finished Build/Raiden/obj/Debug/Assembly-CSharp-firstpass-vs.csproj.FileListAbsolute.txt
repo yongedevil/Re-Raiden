@@ -1,0 +1,11 @@
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\Raiden\obj\Debug\Assembly-CSharp-firstpass-vs.csprojResolveAssemblyReference.cache
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\Raiden\Temp\bin\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\Raiden\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\Raiden\Temp\bin\Debug\UnityEditor.dll
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\Raiden\Temp\bin\Debug\UnityEngine.dll
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\Raiden\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\Raiden\Temp\bin\Debug\nunit.framework.dll
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\Raiden\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\Raiden\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\Raiden\obj\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\Raiden\obj\Debug\Assembly-CSharp-firstpass.pdb

@@ -21,6 +21,10 @@ public class TestAI : MonoBehaviour
 	private float CoolDown;
 	private Vector3 moveDirection;
 
+    public TestAI()
+    {
+    }
+
 	void Awake()
 	{
 		state = TestEnemyState.Idle;

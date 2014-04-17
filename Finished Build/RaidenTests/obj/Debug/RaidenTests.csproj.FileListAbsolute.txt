@@ -1,0 +1,15 @@
+C:\Users\100723472\Documents\GitHub\Re-Raiden\Finished Build\RaidenTests\bin\Debug\RaidenTests.exe.config
+C:\Users\100723472\Documents\GitHub\Re-Raiden\Finished Build\RaidenTests\obj\Debug\RaidenTests.csprojResolveAssemblyReference.cache
+C:\Users\100723472\Documents\GitHub\Re-Raiden\Finished Build\RaidenTests\bin\Debug\RaidenTests.exe
+C:\Users\100723472\Documents\GitHub\Re-Raiden\Finished Build\RaidenTests\bin\Debug\RaidenTests.pdb
+C:\Users\100723472\Documents\GitHub\Re-Raiden\Finished Build\RaidenTests\obj\Debug\RaidenTests.exe
+C:\Users\100723472\Documents\GitHub\Re-Raiden\Finished Build\RaidenTests\obj\Debug\RaidenTests.pdb
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\RaidenTests\bin\Debug\RaidenTests.exe.config
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\RaidenTests\obj\Debug\RaidenTests.exe
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\RaidenTests\obj\Debug\RaidenTests.pdb
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\RaidenTests\obj\Debug\RaidenTests.csprojResolveAssemblyReference.cache
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\RaidenTests\bin\Debug\RaidenTests.exe
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\RaidenTests\bin\Debug\RaidenTests.pdb
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\RaidenTests\bin\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\RaidenTests\bin\Debug\UnityEngine.dll
+C:\Users\Brian\Documents\GitHub\Re-Raiden\Finished Build\RaidenTests\bin\Debug\Assembly-CSharp-firstpass.pdb
